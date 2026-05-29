@@ -20,6 +20,7 @@ result.toImageClip = (imgSrc,width,height) => {
     return new Promise((resolve,reject) => {
         event.on(uuid,(data) => {
             console.log("imageClip",data);
+            event.off(uuid);
             resolve(data);
         });
     });
