@@ -87,10 +87,9 @@ let clearByEx = function () {
         if (!keys[i].startsWith("KANTBOOT-KEY:")) {
             continue;
         }
-        if (uni.getStorageSync(getKeyName(keys[i])).isHasEx) {
-            if (uni.getStorageSync(getKeyName(keys[i])).expire < new Date().getTime()) {
-                uni.removeStorageSync(getKeyName(keys[i]));
-            }
+        const raw = uni.getStorageSync(keys[i]);
+        if (raw && raw.isHasEx && raw.expire < new Date().getTime()) {
+            uni.removeStorageSync(keys[i]);
         }
     }
 }
