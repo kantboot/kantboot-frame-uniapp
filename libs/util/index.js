@@ -83,12 +83,9 @@ result.firstLetterUpper = function (word) {
  * @return {{unit: string, num: string}}
  */
 result.readableDistance = function (m) {
-    let m2 = m + "";
-    m2 = m2.substring(m2.indexOf(".") + 1);
-
     let result = {
         unit: 'm',
-        num: m2
+        num: Math.round(m) + ""
     };
 
 
