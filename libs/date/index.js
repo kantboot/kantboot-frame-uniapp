@@ -1,4 +1,13 @@
+import i18n from "../i18n";
+
 let result = {};
+
+let langFormatMap = {
+    zh: { sameYear: "MM-dd hh:mm", crossYear: "yyyy-MM-dd hh:mm" },
+    en: { sameYear: "MM/dd hh:mm", crossYear: "MM/dd/yyyy hh:mm" },
+    ja: { sameYear: "MM月dd日 hh:mm", crossYear: "yyyy年MM月dd日 hh:mm" },
+    ko: { sameYear: "MM월dd일 hh:mm", crossYear: "yyyy년MM월dd일 hh:mm" },
+};
 
 /**
  * 转换为常用时间格式
@@ -96,7 +105,12 @@ result.parse = function (timeStr, formatStr) {
  * 可读模式时间
  * @param {*} dateTime 时间戳
  */
-result.toReadable=function(dateTime) {
+result.toReadable = function(dateTime, languageCode) {
+    if (!languageCode) {
+        languageCode = i18n.getLanguageCode();
+    }
+    let lang = languageCode.substring(0, 2);
+    let fmt = langFormatMap[lang] || langFormatMap.zh;
 
     // 获取当前时间戳
     let now = new Date().getTime();
@@ -107,12 +121,10 @@ result.toReadable=function(dateTime) {
 
     // 如果大于1分钟，小于1小时，显示几分钟前
     if (now - dateTime < 60 * 60 * 1000) {
-        // 获取相差的分钟数
         let minutes = Math.floor((now - dateTime) / (60 * 1000));
-
-        return minutes+"分钟前";
+        return minutes + "分钟前";
     }
-    // 获取今天的年月日和dateTime的年月日
+
     let nowDate = new Date(now);
     let dateTimeDate = new Date(dateTime);
     // 如果是同一天，显示hh:mm
@@ -127,15 +139,14 @@ result.toReadable=function(dateTime) {
     if (Math.floor((now - dateTime) / (1000 * 60 * 60 * 24)) === 1) {
         return "昨天 " + result.format(dateTime, "hh:mm");
     }
-    // 如果是今年，显示MM-dd hh:mm
+    // 同年且同月才显示短格式，跨月则显示完整年份（设计意图）
     if (
         nowDate.getFullYear() === dateTimeDate.getFullYear() &&
         nowDate.getMonth() === dateTimeDate.getMonth()
     ) {
-        return result.format(dateTime, "MM-dd hh:mm");
+        return result.format(dateTime, fmt.sameYear);
     }
-    // 如果是去年，显示yyyy-MM-dd hh:mm
-    return result.format(dateTime, "yyyy-MM-dd hh:mm");
+    return result.format(dateTime, fmt.crossYear);
 }
 
 /**
