@@ -1,0 +1,937 @@
+html, body {
+    margin: 0;
+}
+
+page {
+    /* 防止屏幕开始时闪烁 */
+    background-color: #333333;
+}
+
+/**
+ * KT Design System - 全局设计变量
+ * 本文件定义了一套完整的设计系统变量，支持浅色/深色模式切换
+ * 命名规则:
+ *   - 前缀: kt- (KT Design System)
+ *   - 模式: -light (浅色模式) / -dark (深色模式)
+ *   - 类型: -color (颜色) / -font (字体) / -size (尺寸) / -border (边框) / -shadow (阴影)
+ *   - 层级: 数字越大表示视觉权重越高（1为最轻，10为最重）
+ */
+page {
+    /* 主色 - 黑色系 */
+    /* 点击状态 */
+    --kt-color-primary-light-7: #000000;
+    /* 默认状态 */
+    --kt-color-primary-light-6: #222222;
+    /* 悬停状态 */
+    --kt-color-primary-light-5: #444444;
+    /* 特殊场景 */
+    --kt-color-primary-light-4: #666666;
+    /* 禁用状态 */
+    --kt-color-primary-light-3: #888888;
+    /* 文字禁用 */
+    --kt-color-primary-light-2: #AAAAAA;
+    /* 最浅 */
+    --kt-color-primary-light-1: #CCCCCC;
+
+    /* 主色 - 深色模式 */
+    /* 点击状态 */
+    --kt-color-primary-dark-7: #333333;
+    /* 默认状态 */
+    --kt-color-primary-dark-6: #777777;
+    /* 悬停状态 */
+    --kt-color-primary-dark-5: #CCCCCC;
+    /* 特殊场景 */
+    --kt-color-primary-dark-4: #999999;
+    /* 禁用状态 */
+    --kt-color-primary-dark-3: #555555;
+    /* 文字禁用 */
+    --kt-color-primary-dark-2: #444444;
+    /* 最浅 */
+    --kt-color-primary-dark-1: #222222;
+
+    --kt-color-primary-7: var(--kt-color-primary-light-7);
+    --kt-color-primary-6: var(--kt-color-primary-light-6);
+    --kt-color-primary-5: var(--kt-color-primary-light-5);
+    --kt-color-primary-4: var(--kt-color-primary-light-4);
+    --kt-color-primary-3: var(--kt-color-primary-light-3);
+    --kt-color-primary-2: var(--kt-color-primary-light-2);
+    --kt-color-primary-1: var(--kt-color-primary-light-1);
+}
+
+[color-scheme="light"] {
+    --kt-color-primary-7: var(--kt-color-primary-light-7);
+    --kt-color-primary-6: var(--kt-color-primary-light-6);
+    --kt-color-primary-5: var(--kt-color-primary-light-5);
+    --kt-color-primary-4: var(--kt-color-primary-light-4);
+    --kt-color-primary-3: var(--kt-color-primary-light-3);
+    --kt-color-primary-2: var(--kt-color-primary-light-2);
+    --kt-color-primary-1: var(--kt-color-primary-light-1);
+}
+
+[color-scheme="dark"] {
+    --kt-color-primary-7: var(--kt-color-primary-dark-7);
+    --kt-color-primary-6: var(--kt-color-primary-dark-6);
+    --kt-color-primary-5: var(--kt-color-primary-dark-5);
+    --kt-color-primary-4: var(--kt-color-primary-dark-4);
+    --kt-color-primary-3: var(--kt-color-primary-dark-3);
+    --kt-color-primary-2: var(--kt-color-primary-dark-2);
+    --kt-color-primary-1: var(--kt-color-primary-dark-1);
+}
+
+
+page {
+
+    --kt-color-success-7: var(--kt-color-success-light-7);
+    --kt-color-success-6: var(--kt-color-success-light-6);
+    --kt-color-success-5: var(--kt-color-success-light-5);
+    --kt-color-success-4: var(--kt-color-success-light-4);
+    --kt-color-success-3: var(--kt-color-success-light-3);
+    --kt-color-success-2: var(--kt-color-success-light-2);
+    --kt-color-success-1: var(--kt-color-success-light-1);
+}
+
+[color-scheme="light"] {
+    --kt-color-success-7: var(--kt-color-success-light-7);
+    --kt-color-success-6: var(--kt-color-success-light-6);
+    --kt-color-success-5: var(--kt-color-success-light-5);
+    --kt-color-success-4: var(--kt-color-success-light-4);
+    --kt-color-success-3: var(--kt-color-success-light-3);
+    --kt-color-success-2: var(--kt-color-success-light-2);
+}
+
+[color-scheme="dark"] {
+    --kt-color-success-7: var(--kt-color-success-dark-7);
+    --kt-color-success-6: var(--kt-color-success-dark-6);
+    --kt-color-success-5: var(--kt-color-success-dark-5);
+    --kt-color-success-4: var(--kt-color-success-dark-4);
+    --kt-color-success-3: var(--kt-color-success-dark-3);
+    --kt-color-success-2: var(--kt-color-success-dark-2);
+    --kt-color-success-1: var(--kt-color-success-dark-1);
+}
+
+
+page {
+    /* 警告色 - 橙色系 */
+    /* 点击状态 - 深橙 */
+    --kt-color-warning-light-7: #C45A00;
+    /* 默认状态 */
+    --kt-color-warning-light-6: #E67C00;
+    /* 悬停状态 */
+    --kt-color-warning-light-5: #FF9D1F;
+    /* 特殊场景 */
+    --kt-color-warning-light-4: #FFB85C;
+    /* 禁用状态 */
+    --kt-color-warning-light-3: #FFD699;
+    /* 文字禁用 */
+    --kt-color-warning-light-2: #FFEED1;
+    /* 最浅 */
+    --kt-color-warning-light-1: #FFF8E5;
+
+    /* 警告色 - 深色模式 */
+    /* 点击状态 */
+    --kt-color-warning-dark-7: #A64D00;
+    /* 默认状态 */
+    --kt-color-warning-dark-6: #D26900;
+    /* 悬停状态 */
+    --kt-color-warning-dark-5: #F08E1A;
+    /* 特殊场景 */
+    --kt-color-warning-dark-4: #FFB04D;
+    /* 禁用状态 */
+    --kt-color-warning-dark-3: #FFD191;
+    /* 文字禁用 */
+    --kt-color-warning-dark-2: #FFECD1;
+    /* 最浅 */
+    --kt-color-warning-dark-1: #FFF5E5;
+
+    --kt-color-warning-7: var(--kt-color-warning-light-7);
+    --kt-color-warning-6: var(--kt-color-warning-light-6);
+    --kt-color-warning-5: var(--kt-color-warning-light-5);
+    --kt-color-warning-4: var(--kt-color-warning-light-4);
+    --kt-color-warning-3: var(--kt-color-warning-light-3);
+    --kt-color-warning-2: var(--kt-color-warning-light-2);
+    --kt-color-warning-1: var(--kt-color-warning-light-1);
+}
+
+[color-scheme="light"] {
+    --kt-color-warning-7: var(--kt-color-warning-light-7);
+    --kt-color-warning-6: var(--kt-color-warning-light-6);
+    --kt-color-warning-5: var(--kt-color-warning-light-5);
+    --kt-color-warning-4: var(--kt-color-warning-light-4);
+    --kt-color-warning-3: var(--kt-color-warning-light-3);
+    --kt-color-warning-2: var(--kt-color-warning-light-2);
+    --kt-color-warning-1: var(--kt-color-warning-light-1);
+}
+
+page {
+    /* 错误色 - 红色系 */
+    /* 点击状态 - 深红 */
+    --kt-color-error-light-7: #A8071A;
+    /* 默认状态 */
+    --kt-color-error-light-6: #CF1322;
+    /* 悬停状态 */
+    --kt-color-error-light-5: #F5222D;
+    /* 特殊场景 */
+    --kt-color-error-light-4: #FF707A;
+    /* 禁用状态 */
+    --kt-color-error-light-3: #FFB6BA;
+    /* 文字禁用 */
+    --kt-color-error-light-2: #FFE0E2;
+    /* 最浅 */
+    --kt-color-error-light-1: #FFF5F7;
+
+    /* 错误色 - 深色模式 */
+    /* 点击状态 */
+    --kt-color-error-dark-7: #8A0618;
+    /* 默认状态 */
+    --kt-color-error-dark-6: #B30F22;
+    /* 悬停状态 */
+    --kt-color-error-dark-5: #D92B2B;
+    /* 特殊场景 */
+    --kt-color-error-dark-4: #FF6B6B;
+    /* 禁用状态 */
+    --kt-color-error-dark-3: #FFA8A8;
+    /* 文字禁用 */
+    --kt-color-error-dark-2: #FFD9D9;
+    /* 最浅 */
+    --kt-color-error-dark-1: #FFF0F0;
+
+    --kt-color-error-7: var(--kt-color-error-light-7);
+    --kt-color-error-6: var(--kt-color-error-light-6);
+    --kt-color-error-5: var(--kt-color-error-light-5);
+    --kt-color-error-4: var(--kt-color-error-light-4);
+    --kt-color-error-3: var(--kt-color-error-light-3);
+    --kt-color-error-2: var(--kt-color-error-light-2);
+    --kt-color-error-1: var(--kt-color-error-light-1);
+}
+
+[color-scheme="light"] {
+    --kt-color-error-7: var(--kt-color-error-light-7);
+    --kt-color-error-6: var(--kt-color-error-light-6);
+    --kt-color-error-5: var(--kt-color-error-light-5);
+    --kt-color-error-4: var(--kt-color-error-light-4);
+    --kt-color-error-3: var(--kt-color-error-light-3);
+    --kt-color-error-2: var(--kt-color-error-light-2);
+    --kt-color-error-1: var(--kt-color-error-light-1);
+}
+
+[color-scheme="dark"] {
+    --kt-color-error-7: var(--kt-color-error-dark-7);
+    --kt-color-error-6: var(--kt-color-error-dark-6);
+    --kt-color-error-5: var(--kt-color-error-dark-5);
+    --kt-color-error-4: var(--kt-color-error-dark-4);
+    --kt-color-error-3: var(--kt-color-error-dark-3);
+    --kt-color-error-2: var(--kt-color-error-dark-2);
+    --kt-color-error-1: var(--kt-color-error-dark-1);
+}
+
+page {
+    /* 链接色 - 浅色模式 */
+    /* 链接色 - 浅色模式 */
+    /* 点击状态 */
+    --kt-color-link-light-7: #0A0FC7;
+    /* 默认状态 */
+    --kt-color-link-light-6: #0D42FF;
+    /* 悬停状态 */
+    --kt-color-link-light-5: #3A6AFF;
+    /* 特殊场景 */
+    --kt-color-link-light-4: #5E8AFF;
+    /* 禁用状态 */
+    --kt-color-link-light-3: #8FB0FF;
+    /* 文字禁用 */
+    --kt-color-link-light-2: #C2D5FF;
+    /* 最浅 */
+    --kt-color-link-light-1: #E6ECFF;
+
+    /* 链接色 - 深色模式 */
+    /* 点击状态 */
+    --kt-color-link-dark-7: #1A27D1;
+    /* 默认状态 */
+    --kt-color-link-dark-6: #2D5CFF;
+    /* 悬停状态 */
+    --kt-color-link-dark-5: #4F7DFF;
+    /* 特殊场景 */
+    --kt-color-link-dark-4: #78A0FF;
+    /* 禁用状态 */
+    --kt-color-link-dark-3: #A5C1FF;
+    /* 文字禁用 */
+    --kt-color-link-dark-2: #D0E0FF;
+    /* 最浅 */
+    --kt-color-link-dark-1: #F0F5FF;
+
+    --kt-color-link-7: var(--kt-color-link-light-7);
+    --kt-color-link-6: var(--kt-color-link-light-6);
+    --kt-color-link-5: var(--kt-color-link-light-5);
+    --kt-color-link-4: var(--kt-color-link-light-4);
+    --kt-color-link-3: var(--kt-color-link-light-3);
+    --kt-color-link-2: var(--kt-color-link-light-2);
+    --kt-color-link-1: var(--kt-color-link-light-1);
+}
+
+[color-scheme="light"] {
+    --kt-color-link-7: var(--kt-color-link-light-7);
+    --kt-color-link-6: var(--kt-color-link-light-6);
+    --kt-color-link-5: var(--kt-color-link-light-5);
+    --kt-color-link-4: var(--kt-color-link-light-4);
+    --kt-color-link-3: var(--kt-color-link-light-3);
+    --kt-color-link-2: var(--kt-color-link-light-2);
+    --kt-color-link-1: var(--kt-color-link-light-1);
+}
+
+[color-scheme="dark"] {
+    --kt-color-link-7: var(--kt-color-link-dark-7);
+    --kt-color-link-6: var(--kt-color-link-dark-6);
+    --kt-color-link-5: var(--kt-color-link-dark-5);
+    --kt-color-link-4: var(--kt-color-link-dark-4);
+    --kt-color-link-3: var(--kt-color-link-dark-3);
+    --kt-color-link-2: var(--kt-color-link-dark-2);
+    --kt-color-link-1: var(--kt-color-link-dark-1);
+}
+
+page {
+    /* ===================== 中性色 ===================== */
+    /* 用于构建边框、填充、文字等基础变量 */
+
+    /* 浅色模式中性色 */
+    /* 最浅白，用于背景 */
+    --kt-color-neutral-light-1: #FFFFFF;
+    /* 非常浅的灰 */
+    --kt-color-neutral-light-2: #FAFAFA;
+    /* 浅灰，用于填充 */
+    --kt-color-neutral-light-3: #F5F5F5;
+    /* 中等浅灰，用于边框 */
+    --kt-color-neutral-light-4: #E8E8E8;
+    /* 标准灰 */
+    --kt-color-neutral-light-5: #D9D9D9;
+    /* 中等深灰 */
+    --kt-color-neutral-light-6: #BFBFBF;
+    /* 深灰，用于次要文字 */
+    --kt-color-neutral-light-7: #8C8C8C;
+    /* 更深灰，用于次要标题 */
+    --kt-color-neutral-light-8: #595959;
+    /* 接近黑色 */
+    --kt-color-neutral-light-9: #262626;
+    /* 纯黑，用于标题 */
+    --kt-color-neutral-light-10: #000000;
+
+    /* 深色模式中性色 */
+    /* 接近黑色，深色背景 */
+    --kt-color-neutral-dark-1: #0D0D0D;
+    /* 深灰 */
+    --kt-color-neutral-dark-2: #1A1A1A;
+    /* 中等深灰 */
+    --kt-color-neutral-dark-3: #262626;
+    /* 浅深灰，用于边框 */
+    --kt-color-neutral-dark-4: #333333;
+    /* 标准深灰 */
+    --kt-color-neutral-dark-5: #4D4D4D;
+    /* 浅灰，用于禁用状态 */
+    --kt-color-neutral-dark-6: #666666;
+    /* 中等浅灰 */
+    --kt-color-neutral-dark-7: #808080;
+    /* 浅灰，用于次要文字 */
+    --kt-color-neutral-dark-8: #999999;
+    /* 更浅灰，用于文字 */
+    --kt-color-neutral-dark-9: #B3B3B3;
+    /* 纯白，深色模式文字 */
+    --kt-color-neutral-dark-10: #FFFFFF;
+
+    --kt-color-neutral-1: var(--kt-color-neutral-light-1);
+    --kt-color-neutral-2: var(--kt-color-neutral-light-2);
+    --kt-color-neutral-3: var(--kt-color-neutral-light-3);
+    --kt-color-neutral-4: var(--kt-color-neutral-light-4);
+    --kt-color-neutral-5: var(--kt-color-neutral-light-5);
+    --kt-color-neutral-6: var(--kt-color-neutral-light-6);
+    --kt-color-neutral-7: var(--kt-color-neutral-light-7);
+    --kt-color-neutral-8: var(--kt-color-neutral-light-8);
+    --kt-color-neutral-9: var(--kt-color-neutral-light-9);
+    --kt-color-neutral-10: var(--kt-color-neutral-light-10);
+}
+
+[color-scheme="light"] {
+    --kt-color-neutral-1: var(--kt-color-neutral-light-1);
+    --kt-color-neutral-2: var(--kt-color-neutral-light-2);
+    --kt-color-neutral-3: var(--kt-color-neutral-light-3);
+    --kt-color-neutral-4: var(--kt-color-neutral-light-4);
+    --kt-color-neutral-5: var(--kt-color-neutral-light-5);
+    --kt-color-neutral-6: var(--kt-color-neutral-light-6);
+    --kt-color-neutral-7: var(--kt-color-neutral-light-7);
+    --kt-color-neutral-8: var(--kt-color-neutral-light-8);
+    --kt-color-neutral-9: var(--kt-color-neutral-light-9);
+    --kt-color-neutral-10: var(--kt-color-neutral-light-10);
+}
+
+[color-scheme="dark"] {
+    --kt-color-neutral-1: var(--kt-color-neutral-dark-1);
+    --kt-color-neutral-2: var(--kt-color-neutral-dark-2);
+    --kt-color-neutral-3: var(--kt-color-neutral-dark-3);
+    --kt-color-neutral-4: var(--kt-color-neutral-dark-4);
+    --kt-color-neutral-5: var(--kt-color-neutral-dark-5);
+    --kt-color-neutral-6: var(--kt-color-neutral-dark-6);
+    --kt-color-neutral-7: var(--kt-color-neutral-dark-7);
+    --kt-color-neutral-8: var(--kt-color-neutral-dark-8);
+    --kt-color-neutral-9: var(--kt-color-neutral-dark-9);
+    --kt-color-neutral-10: var(--kt-color-neutral-dark-10);
+}
+
+page {
+    /* ===================== 边框颜色 ===================== */
+    /* 用于各种边框、分隔线等元素 */
+
+    /* 浅色模式边框 */
+    /* 最浅边框 - 用于细微分隔 */
+    --kt-color-border-light-1: var(--kt-color-neutral-light-2);
+    /* 常规边框 - 一般容器边框 */
+    --kt-color-border-light-2: var(--kt-color-neutral-light-3);
+    /* 深边框 - 悬停/聚焦状态 */
+    --kt-color-border-light-3: var(--kt-color-neutral-light-4);
+    /* 最重边框 - 按钮描边等 */
+    --kt-color-border-light-4: var(--kt-color-neutral-light-6);
+
+    /* 深色模式边框 */
+    /* 深色模式浅边框 */
+    --kt-color-border-dark-1: var(--kt-color-neutral-dark-4);
+    /* 深色模式常规边框 */
+    --kt-color-border-dark-2: var(--kt-color-neutral-dark-5);
+    /* 深色模式深边框 */
+    --kt-color-border-dark-3: var(--kt-color-neutral-dark-6);
+    /* 深色模式最重边框 */
+    --kt-color-border-dark-4: var(--kt-color-neutral-dark-7);
+
+    --kt-color-border-1: var(--kt-color-border-light-1);
+    --kt-color-border-2: var(--kt-color-border-light-2);
+    --kt-color-border-3: var(--kt-color-border-light-3);
+    --kt-color-border-4: var(--kt-color-border-light-4);
+}
+
+[color-scheme="light"] {
+    --kt-color-border-1: var(--kt-color-border-light-1);
+    --kt-color-border-2: var(--kt-color-border-light-2);
+    --kt-color-border-3: var(--kt-color-border-light-3);
+    --kt-color-border-4: var(--kt-color-border-light-4);
+}
+
+[color-scheme="dark"] {
+    --kt-color-border-1: var(--kt-color-border-dark-1);
+    --kt-color-border-2: var(--kt-color-border-dark-2);
+    --kt-color-border-3: var(--kt-color-border-dark-3);
+    --kt-color-border-4: var(--kt-color-border-dark-4);
+}
+
+page {
+    /* ===================== 填充颜色 ===================== */
+    /* 用于按钮、标签、控件等元素的背景填充 */
+
+    /* 浅色模式填充 */
+    /* 最浅填充 - 禁用状态背景 */
+    --kt-color-fill-light-1: var(--kt-color-neutral-light-1);
+    /* 常规填充 - 白底悬停状态 */
+    --kt-color-fill-light-2: var(--kt-color-neutral-light-2);
+    /* 深填充 - 灰底悬停状态 */
+    --kt-color-fill-light-3: var(--kt-color-neutral-light-3);
+    /* 最重填充 - 特殊场景使用 */
+    --kt-color-fill-light-4: var(--kt-color-neutral-light-4);
+
+    /* 深色模式填充 */
+    /* 深色模式最浅填充 */
+    --kt-color-fill-dark-1: var(--kt-color-neutral-dark-2);
+    /* 深色模式常规填充 */
+    --kt-color-fill-dark-2: var(--kt-color-neutral-dark-3);
+    /* 深色模式深填充 */
+    --kt-color-fill-dark-3: var(--kt-color-neutral-dark-4);
+    /* 深色模式最重填充 */
+    --kt-color-fill-dark-4: var(--kt-color-neutral-dark-5);
+
+    --kt-color-fill-1: var(--kt-color-fill-light-1);
+    --kt-color-fill-2: var(--kt-color-fill-light-2);
+    --kt-color-fill-3: var(--kt-color-fill-light-3);
+    --kt-color-fill-4: var(--kt-color-fill-light-4);
+}
+
+[color-scheme="light"] {
+    --kt-color-fill-1: var(--kt-color-fill-light-1);
+    --kt-color-fill-2: var(--kt-color-fill-light-2);
+    --kt-color-fill-3: var(--kt-color-fill-light-3);
+    --kt-color-fill-4: var(--kt-color-fill-light-4);
+}
+
+[color-scheme="dark"] {
+    --kt-color-fill-1: var(--kt-color-fill-dark-1);
+    --kt-color-fill-2: var(--kt-color-fill-dark-2);
+    --kt-color-fill-3: var(--kt-color-fill-dark-3);
+    --kt-color-fill-4: var(--kt-color-fill-dark-4);
+}
+
+
+page {
+    /* ===================== 文字颜色 ===================== */
+    /* 用于各种文本内容 */
+
+    /* 浅色模式文字 */
+    /* 强调文本 - 标题/正文 */
+    --kt-color-text-light-1: var(--kt-color-neutral-light-10);
+    /* 次强调文本 - 副标题 */
+    --kt-color-text-light-2: var(--kt-color-neutral-light-8);
+    /* 次要信息 - 描述文本 */
+    --kt-color-text-light-3: var(--kt-color-neutral-light-6);
+    /* 置灰信息 - 禁用状态文字 */
+    --kt-color-text-light-4: var(--kt-color-neutral-light-4);
+
+    /* 深色模式文字 */
+    /* 深色模式主要文字 */
+    --kt-color-text-dark-1: var(--kt-color-neutral-dark-10);
+    /* 深色模式次要文字 */
+    --kt-color-text-dark-2: var(--kt-color-neutral-dark-9);
+    /* 深色模式辅助文字 */
+    --kt-color-text-dark-3: var(--kt-color-neutral-dark-8);
+    /* 深色模式禁用文字 */
+    --kt-color-text-dark-4: var(--kt-color-neutral-dark-7);
+
+    --kt-color-text-1: var(--kt-color-text-light-1);
+    --kt-color-text-2: var(--kt-color-text-light-2);
+    --kt-color-text-3: var(--kt-color-text-light-3);
+    --kt-color-text-4: var(--kt-color-text-light-4);
+}
+
+[color-scheme="light"] {
+    --kt-color-text-1: var(--kt-color-text-light-1);
+    --kt-color-text-2: var(--kt-color-text-light-2);
+    --kt-color-text-3: var(--kt-color-text-light-3);
+    --kt-color-text-4: var(--kt-color-text-light-4);
+}
+
+[color-scheme="dark"] {
+    --kt-color-text-1: var(--kt-color-text-dark-1);
+    --kt-color-text-2: var(--kt-color-text-dark-2);
+    --kt-color-text-3: var(--kt-color-text-dark-3);
+    --kt-color-text-4: var(--kt-color-text-dark-4);
+}
+
+page {
+    /* ===================== 背景颜色 ===================== */
+    /* 用于页面和容器背景 */
+
+    /* 浅色模式背景 */
+    /* 整体背景色 - 页面最底层 */
+    --kt-color-bg-light-1: #FFFFFF;
+    /* 一级容器背景 - 卡片/模块 */
+    --kt-color-bg-light-2: #F5F5F5;
+    /* 二级容器背景 - 嵌套容器 */
+    --kt-color-bg-light-3: #FFFFFF;
+    /* 三级容器背景 - 深层嵌套 */
+    --kt-color-bg-light-4: #FFFFFF;
+    /* 弹出层背景 - 下拉/Tooltip */
+    --kt-color-bg-light-5: #FFFFFF;
+    --kt-color-bg-light-6: #a0a0a0;
+    --kt-color-bg-light-7: #272727;
+    /* 纯白色背景 */
+    --kt-color-bg-light-white: #FFFFFF;
+
+    /* 深色模式背景 */
+    /* 深色模式整体背景 */
+    --kt-color-bg-dark-1: #121212;
+    /* 深色模式一级容器 */
+    --kt-color-bg-dark-2: #1E1E1E;
+    /* 深色模式二级容器 */
+    --kt-color-bg-dark-3: #242424;
+    /* 深色模式三级容器 */
+    --kt-color-bg-dark-4: #2D2D2D;
+    /* 深色模式弹出层 */
+    --kt-color-bg-dark-5: #363636;
+    --kt-color-bg-dark-6: #000000;
+    --kt-color-bg-dark-7: #272727;
+    /* 深色模式下的白色（特殊场景） */
+    --kt-color-bg-dark-white: #FFFFFF;
+
+    /* 统一背景色变量 */
+    --kt-color-bg-1: var(--kt-color-bg-light-1);
+    --kt-color-bg-2: var(--kt-color-bg-light-2);
+    --kt-color-bg-3: var(--kt-color-bg-light-3);
+    --kt-color-bg-4: var(--kt-color-bg-light-4);
+    --kt-color-bg-5: var(--kt-color-bg-light-5);
+    --kt-color-bg-6: var(--kt-color-bg-light-6);
+    --kt-color-bg-7: var(--kt-color-bg-light-7);
+    --kt-color-bg-white: var(--kt-color-bg-light-white);
+
+}
+
+[color-scheme="light"] {
+    --kt-color-bg-1: var(--kt-color-bg-light-1);
+    --kt-color-bg-2: var(--kt-color-bg-light-2);
+    --kt-color-bg-3: var(--kt-color-bg-light-3);
+    --kt-color-bg-4: var(--kt-color-bg-light-4);
+    --kt-color-bg-5: var(--kt-color-bg-light-5);
+    --kt-color-bg-6: var(--kt-color-bg-light-6);
+    --kt-color-bg-7: var(--kt-color-bg-light-7);
+    --kt-color-bg-white: var(--kt-color-bg-light-white);
+}
+
+[color-scheme="dark"] {
+    --kt-color-bg-1: var(--kt-color-bg-dark-1);
+    --kt-color-bg-2: var(--kt-color-bg-dark-2);
+    --kt-color-bg-3: var(--kt-color-bg-dark-3);
+    --kt-color-bg-4: var(--kt-color-bg-dark-4);
+    --kt-color-bg-5: var(--kt-color-bg-dark-5);
+    --kt-color-bg-6: var(--kt-color-bg-dark-6);
+    --kt-color-bg-7: var(--kt-color-bg-dark-7);
+    --kt-color-bg-white: var(--kt-color-bg-dark-white);
+}
+
+page{
+    /* 遮挡层 */
+    /* 用于模态框、加载等全屏遮挡 */
+    --kt-color-overlay: rgba(255, 255, 255, 0.5);
+    --kt-color-overlay-light: rgba(255, 255, 255, 0.5);
+    --kt-color-overlay-dark: rgba(0, 0, 0, 0.5);
+}
+
+[color-scheme="light"] {
+    --kt-color-overlay: var(--kt-color-overlay-light);
+}
+
+[color-scheme="dark"] {
+    --kt-color-overlay: var(--kt-color-overlay-dark);
+}
+
+page {
+    /* ===================== 阴影 ===================== */
+    /* 用于提升元素层次感 */
+
+    /* 浅色模式阴影 */
+    /* 特殊阴影 - 细微轮廓 */
+    --kt-shadow-light-special: 0 0 1px rgba(0, 0, 0, 0.3);
+    /* 阴影样式1 - 轻微上阴影 */
+    --kt-shadow-light-1: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    /* 阴影样式2 - 常规卡片阴影 */
+    --kt-shadow-light-2: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* 阴影样式3 - 浮层面板 */
+    --kt-shadow-light-3: 0 0 20px rgba(0, 0, 0, 0.1);
+
+    /* 深色模式阴影 */
+    /* 深色特殊阴影 */
+    --kt-shadow-dark-special: 0 0 1px rgba(255, 255, 255, 0.2);
+    /* 深色上阴影 */
+    --kt-shadow-dark-1: 0 -2px 5px rgba(0, 0, 0, 0.4);
+    /* 深色常规阴影 */
+    --kt-shadow-dark-2: 0 0 10px rgba(0, 0, 0, 0.4);
+    /* 深色强阴影 */
+    --kt-shadow-dark-3: 0 0 20px rgba(0, 0, 0, 0.4);
+
+    /* 统一阴影变量 */
+    --kt-shadow-special: var(--kt-shadow-light-special);
+    --kt-shadow-1: var(--kt-shadow-light-1);
+    --kt-shadow-2: var(--kt-shadow-light-2);
+    --kt-shadow-3: var(--kt-shadow-light-3);
+}
+
+[color-scheme="light"] {
+    --kt-shadow-special: var(--kt-shadow-light-special);
+    --kt-shadow-1: var(--kt-shadow-light-1);
+    --kt-shadow-2: var(--kt-shadow-light-2);
+    --kt-shadow-3: var(--kt-shadow-light-3);
+}
+
+[color-scheme="dark"] {
+    --kt-shadow-special: var(--kt-shadow-dark-special);
+    --kt-shadow-1: var(--kt-shadow-dark-1);
+    --kt-shadow-2: var(--kt-shadow-dark-2);
+    --kt-shadow-3: var(--kt-shadow-dark-3);
+}
+
+
+page {
+    /* ===================== 字体大小 ===================== */
+    /* 用于不同级别的文本内容 */
+
+    /* 正文-常规 - 主要阅读尺寸 */
+    --kt-font-size-body-3: 14px;
+    /* 正文-常规-小 - 次要内容 */
+    --kt-font-size-body-2: 13px;
+    /* 辅助文案/次要文案 - 说明文本 */
+    --kt-font-size-body-1: 12px;
+    /* 水印文本 - 图片标注等 */
+    --kt-font-size-caption: 12px;
+
+    /* 标题-小 - 小节标题 */
+    --kt-font-size-title-1: 16px;
+    /* 标题-中 - 中等标题 */
+    --kt-font-size-title-2: 20px;
+    /* 标题-大 - 主要标题 */
+    --kt-font-size-title-3: 24px;
+
+    /* 运营标题-小 - 促销/活动 */
+    --kt-font-size-display-1: 36px;
+    /* 运营标题-中 - 重要活动 */
+    --kt-font-size-display-2: 48px;
+    /* 运营标题-大 - 关键营销 */
+    --kt-font-size-display-3: 56px;
+
+}
+
+/*// 根据字体大小，-1、0、1、2、3、4、5、6*/
+/*   fontSize: '0',*/
+[font-size='0'] {
+    --kt-font-size-body-3: 14px;
+    --kt-font-size-body-2: 13px;
+    --kt-font-size-body-1: 12px;
+    --kt-font-size-caption: 12px;
+
+    --kt-font-size-title-1: 16px;
+    --kt-font-size-title-2: 20px;
+    --kt-font-size-title-3: 24px;
+
+    --kt-font-size-display-1: 36px;
+    --kt-font-size-display-2: 48px;
+    --kt-font-size-display-3: 56px;
+}
+
+[font-size='1'] {
+    --kt-font-size-body-3: 16px;
+    --kt-font-size-body-2: 15px;
+    --kt-font-size-body-1: 14px;
+    --kt-font-size-caption: 14px;
+
+    --kt-font-size-title-1: 18px;
+    --kt-font-size-title-2: 22px;
+    --kt-font-size-title-3: 26px;
+    --kt-font-size-display-1: 38px;
+    --kt-font-size-display-2: 50px;
+    --kt-font-size-display-3: 58px;
+}
+
+[font-size='2'] {
+    --kt-font-size-body-3: 18px;
+    --kt-font-size-body-2: 17px;
+    --kt-font-size-body-1: 16px;
+    --kt-font-size-caption: 16px;
+
+    --kt-font-size-title-1: 20px;
+    --kt-font-size-title-2: 24px;
+    --kt-font-size-title-3: 28px;
+    --kt-font-size-display-1: 40px;
+    --kt-font-size-display-2: 52px;
+    --kt-font-size-display-3: 60px;
+}
+
+[font-size='3'] {
+    --kt-font-size-body-3: 20px;
+    --kt-font-size-body-2: 19px;
+    --kt-font-size-body-1: 18px;
+    --kt-font-size-caption: 18px;
+
+    --kt-font-size-title-1: 22px;
+    --kt-font-size-title-2: 26px;
+    --kt-font-size-title-3: 30px;
+    --kt-font-size-display-1: 42px;
+    --kt-font-size-display-2: 54px;
+    --kt-font-size-display-3: 62px;
+}
+
+[font-size='4'] {
+    --kt-font-size-body-3: 22px;
+    --kt-font-size-body-2: 21px;
+    --kt-font-size-body-1: 20px;
+    --kt-font-size-caption: 20px;
+
+    --kt-font-size-title-1: 24px;
+    --kt-font-size-title-2: 28px;
+    --kt-font-size-title-3: 32px;
+    --kt-font-size-display-1: 44px;
+    --kt-font-size-display-2: 56px;
+    --kt-font-size-display-3: 64px;
+}
+
+[font-size='5'] {
+    --kt-font-size-body-3: 24px;
+    --kt-font-size-body-2: 23px;
+    --kt-font-size-body-1: 22px;
+    --kt-font-size-caption: 22px;
+
+    --kt-font-size-title-1: 26px;
+    --kt-font-size-title-2: 30px;
+    --kt-font-size-title-3: 34px;
+    --kt-font-size-display-1: 46px;
+    --kt-font-size-display-2: 58px;
+    --kt-font-size-display-3: 66px;
+}
+
+[font-size='6'] {
+    --kt-font-size-body-3: 26px;
+    --kt-font-size-body-2: 25px;
+    --kt-font-size-body-1: 24px;
+    --kt-font-size-caption: 24px;
+
+    --kt-font-size-title-1: 28px;
+    --kt-font-size-title-2: 32px;
+    --kt-font-size-title-3: 36px;
+    --kt-font-size-display-1: 48px;
+    --kt-font-size-display-2: 60px;
+    --kt-font-size-display-3: 68px;
+}
+
+[font-size='-1']{
+    --kt-font-size-body-3: 12px;
+    --kt-font-size-body-2: 11px;
+    --kt-font-size-body-1: 10px;
+    --kt-font-size-caption: 10px;
+
+    --kt-font-size-title-1: 14px;
+    --kt-font-size-title-2: 18px;
+    --kt-font-size-title-3: 22px;
+    --kt-font-size-display-1: 34px;
+    --kt-font-size-display-2: 46px;
+    --kt-font-size-display-3: 54px;
+}
+
+
+
+page {
+
+    /* ===================== 字重 ===================== */
+    /* 用于文本的粗细程度 */
+
+    /* 极细 - 特殊装饰文本 */
+    --kt-font-weight-100: 100;
+    /* 纤细 - 轻量级标题 */
+    --kt-font-weight-200: 200;
+    /* 细体 - 优雅文本 */
+    --kt-font-weight-300: 300;
+    /* 常规 - 正文标准 */
+    --kt-font-weight-400: 400;
+    /* 中等（加粗） - 强调文本 */
+    --kt-font-weight-500: 500;
+    /* 半粗 - 标题 */
+    --kt-font-weight-600: 600;
+    /* 粗体 - 重要标题 */
+    --kt-font-weight-700: 700;
+    /* 中黑 - 强调标题 */
+    --kt-font-weight-800: 800;
+    /* 黑体 - 最强调文本 */
+    --kt-font-weight-900: 900;
+
+
+    /* ===================== 尺寸 ===================== */
+    /* 基于4px的间距系统，用于内边距、外边距等 */
+
+    /* 无间距 */
+    --kt-size-none: 0;
+    /* 最小间距 */
+    --kt-size-1: 4px;
+    /* 小间距 */
+    --kt-size-2: 8px;
+    /* 常规间距 */
+    --kt-size-3: 12px;
+    /* 中等间距 */
+    --kt-size-4: 16px;
+    /* 大间距 */
+    --kt-size-5: 20px;
+    /* 迷你组件尺寸 */
+    --kt-size-6: 24px;
+    /* 小组件尺寸 */
+    --kt-size-7: 28px;
+    /* 默认组件尺寸 */
+    --kt-size-8: 32px;
+    /* 大组件尺寸 */
+    --kt-size-9: 36px;
+    /* 更大组件尺寸 */
+    --kt-size-10: 40px;
+    --kt-size-12: 48px;
+    --kt-size-20: 80px;
+
+    /* 特殊大尺寸 */
+    --kt-size-50: 200px;
+
+
+    /* ===================== 组件尺寸 ===================== */
+    /* 用于标准化组件高度 */
+
+    /* 迷你（24px） - 紧凑控件 */
+    --kt-component-size-mini: var(--kt-size-6);
+    /* 较小（28px） - 次要控件 */
+    --kt-component-size-small: var(--kt-size-7);
+    /* 中等（32px） - 标准按钮/输入框 */
+    --kt-component-size-default: var(--kt-size-8);
+    /* 较大（36px） - 重要按钮 */
+    --kt-component-size-large: var(--kt-size-9);
+
+
+    /* ===================== 边框宽度 ===================== */
+    /* 用于各种边框粗细 */
+
+    /* 无边框 */
+    --kt-border-width-none: 0;
+    /* 常规边框 - 默认按钮/输入框 */
+    --kt-border-width-1: 1px;
+    /* 较粗边框 - 悬停状态 */
+    --kt-border-width-2: 2px;
+    /* 粗边框 - 聚焦状态 */
+    --kt-border-width-3: 3px;
+
+
+    /* ===================== 边框圆角 ===================== */
+    /* 用于各种元素的圆角 */
+
+    /* 直角 - 方形元素 */
+    --kt-border-radius-none: 0;
+    /* 圆角-常规 - 按钮/卡片 */
+    --kt-border-radius-small: 2px;
+    /* 圆角-中等 - 容器 */
+    --kt-border-radius-medium: 4px;
+    /* 圆角-较大 - 大卡片 */
+    --kt-border-radius-large: 8px;
+    /* 圆角-全圆角 - 头像/圆形按钮 */
+    --kt-border-radius-circle: 50%;
+
+}
+
+page {
+    background-color: var(--kt-color-bg-1);
+    color: var(--kt-color-text-1);
+    font-size: var(--kt-font-size-body-3);
+    min-width: 368px;
+    min-height: 100vh;
+    /* 斑马条纹 */
+    /*background: repeating-linear-gradient(*/
+    /*    45deg,*/
+    /*    var(--kt-color-bg-1),*/
+    /*    var(--kt-color-bg-1) 10px,*/
+    /*    var(--kt-color-bg-1) 10px,*/
+    /*    var(--kt-color-bg-2) 20px*/
+    /*);*/
+}
+
+input, textarea, select {
+    color: var(--kt-color-text-1);
+    background-color: var(--kt-color-bg-2);
+    border: var(--kt-border-width-1) solid var(--kt-color-border-2);
+    box-sizing: border-box;
+    border-radius: var(--kt-border-radius-small);
+    font-size: var(--kt-font-size-body-3);
+}
+
+/* 取消input选中时默认的边框 */
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 修改默认滚动条 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--kt-color-neutral-6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+}
