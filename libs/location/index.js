@@ -20,7 +20,7 @@ result.getGeo = ()=>{
 }
 
 result.getLocation = ()=>{
-    // 判断是否超过30秒
+    // 判断是否超过1秒
     if(storage.get("location:timestamp") && storage.get("location:timestamp")+1000>Date.now()){
         return Promise.resolve(storage.get("location"));
     }
